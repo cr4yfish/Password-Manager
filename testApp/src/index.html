@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello Bulma!</title>
+
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js" integrity="sha512-szJ5FSo9hEmXXe7b5AUVtn/WnL8a5VofnFeYC2i2z03uS2LhAch7ewNLbl5flsEmTTimMN0enBZg/3sQ+YOSzQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  </head>
+  <body onload="drawDatabaseEntries();">
+    
+    <div id="newEntryModal" class="modal popup">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+        <div class="card">
+
+          <div class="card-header">
+            <h2 class="card-header-title">Create new Entry</h2>
+          </div>
+
+          <div class="card-content">
+            <!-- Form -->
+
+            <form id="newEntryModalForm">
+
+              <div class="field">
+                <label for="nickname" class="label">Username</label>
+                <div class="control has-icons-left">
+
+                  <input name="username" type="text" placeholder="Username..." class="input" required>
+
+                  <span class="icon is-small is-left"><i class="fas fa-user"></i></span>
+                </div>
+              </div>
+              
+              <div class="field">
+                <label for="nickname" class="label">Password</label>
+                <div class="control has-icons-left has-icons-right">
+
+                  <input name="password" type="password" placeholder="*****" class="input is-danger" required>
+
+                  <span class="icon is-small is-left"><i class="fas fa-user"></i></span>
+                  <span class="icon is-small is-right"><i class="fas fa-check"></i></span>
+                </div>
+                <p class="help is-danger">This password is weak</p>
+              </div>
+
+              <div class="field">
+                <label for="nickname" class="label">Nickname</label>
+                <div class="control has-icons-left has-icons-right">
+
+                  <input name="nickname" type="text" placeholder="Nickname..." class="input is-success" required>
+
+                  <span class="icon is-small is-left"><i class="fas fa-user"></i></span>
+                  <span class="icon is-small is-right"><i class="fas fa-check"></i></span>
+                </div>
+                <p class="help is-success">This Nickname is available</p>
+              </div>
+
+              <div class="field">
+                <label for="subtitle" class="label">Description</label>
+                <div class="control">
+
+                  <input name="subtitle" type="text" placeholder="Describe what your password is for..." class="input">
+
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="nickname" class="label">Link</label>
+                <div class="control has-icons-left">
+    
+                  <input name="link" type="text" placeholder="https://" class="input">
+
+                  <span class="icon is-small is-left"><i class="fas fa-user"></i></span>
+                </div>
+              </div>
+              
+          </form>
+          </div>
+
+          <div class="card-footer">
+            <div class="card-footer-item">
+              <button onclick="changeModalState(false)" class="button is-danger is-light">Cancel</button>
+            </div>
+            <div class="card-footer-item">
+              <button type="submit" onclick="addNewEntry();" class="button is-primary is-light">Add</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  <div class="container is-flex is-flex-direction-column is-justify-content-center">
+
+    <section class="section is-flex is-justify-content-center">
+      <div class="field is-grouped is-flex is-justify-content-space-evenly header-field">
+        
+        <div class="control">
+          <label for="pwSearch" class="label">Search passwords</label>
+          <input id="entrySearchInput" placeholder="search..." type="text" name="pwSearch" class="input">
+        </div>
+
+        <div class="control">
+          <label for="addNewBtn" class="label">Add new</label>
+          <button onclick="changeModalState(true)" id="addNewBtn" name="addNewBtn" class="button"><div class="icon"><i class="fas fa-plus"></i></div></button>
+        </div>
+
+      </div>
+    </section>
+
+
+
+    <section id="entry-section" class="section is-flex is-align-items-center is-flex-direction-column">
+
+      <div onclick="openPasswordEntry(this)" class="card entry is-clickable has-icons-left mb-5">
+        <!-- icon -->
+        <div class="card-content entry-icon is-flex is-align-items-center">
+          <div class="icon is-large"><i class="fas fa-at fa-2x"></i></div>
+        </div>
+      <!-- content --> 
+        <div class="card-content">
+          <h3 class="title">Title</h3>
+         <p class="subtitle">Entry text</p>
+        </div>
+      </div>
+
+
+
+    </section>
+    </div>
+
+    <script>
+    </script>
+    <script src="render.js"></script>
+  </body>
+</html>

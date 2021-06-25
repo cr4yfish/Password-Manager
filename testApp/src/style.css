@@ -1,0 +1,49 @@
+:root {
+    --lightBlue: #CFD8DC;
+}
+
+body,html {
+    background-color: var(--lightBlue);
+    min-height: 100vh;
+}
+
+.header-field {
+    width: 50%;
+}
+
+.header-field .control:first-of-type {
+    width: 75%;
+    margin: 0.25em !important;
+}
+
+.header-field .control:last-of-type {
+    width: 25%;
+    margin: 0.25em !important;
+}
+
+#entrySearchInput, #addNewBtn {
+    width: 100%;
+}
+
+#entry-section {
+    padding-top: 0;
+}
+
+.entry {
+    width: 50%;
+    height: 7em;
+    transition: box-shadow 0.25s;
+}
+.entry:hover {
+    box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 20%), 0 0 0 1px rgb(10 10 10 / 2%);
+}
+
+
+.entry-icon {
+    height: 100% !important;
+    width: fit-content;
+    float: left !important;
+    /* placeholder color */
+    background-color: #EBEBEB !important;
+    margin-right: 1.5rem;
+}
